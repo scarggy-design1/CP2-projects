@@ -7,7 +7,6 @@ def savings(): #The function that calculates how long it will take to save for a
     txt = f'To reach your goal of {goal:.2f} dollars it will take you {time} month(s)'
     print(txt)
     
-
 def compound(): #The function to calculate compound interest
     money = float(input("How much money do you have in your compound interest account?: "))
     percent = float(input("What is the percentage of your compound interest?: "))
@@ -17,7 +16,6 @@ def compound(): #The function to calculate compound interest
     txt = f"You'll have a total of ${total:.2f} at the end of the {time} year(s)"
     print("starting:", f'${money:.2f}')
     print(txt)
-
 
 def budget(): #The function to divide your income to a reccomended budgeting tactic
     income = float(input("What is your income?: "))
@@ -47,6 +45,31 @@ def tip_calc(): #Calculates how much a tip would cost, and rings up grand total
     txt = f'You will be paying a grand total of {total:.2f}, the tip costing {price*theTip:.2f}'
     print(txt)
 
-def main():
-    text = 
-    """)
+def main(): #The user interface
+    text = """WELCOME TO FINANCIAL CALULATOR!
+            What would you like to do?
+            1. Goal Saving
+            2. Compound Interest calc
+            3. Budgetting Allocator
+            4. Sale Price Calculator
+            5. Tip Calculator
+            6. exit
+            """
+    while True:
+        ask = int(input(text))
+        if ask == 1:
+            savings()
+        elif ask == 2:
+            compound()
+        elif ask == 3:
+            budget()
+        elif ask == 4:
+            sale_price()
+        elif ask == 5:
+            tip_calc()
+        elif ask == 6:
+            break
+        else:
+            print("Invalid choice. Pick again.")
+
+main()
