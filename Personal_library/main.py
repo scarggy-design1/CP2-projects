@@ -4,21 +4,21 @@ music_library = [("Dance Away", "Roxette"), ("Play That Funky Music", "Wild Cher
          ("Zanzibar", "Billy Joel"), ("Physical Fasination", "Roxette"), ("The Look", "Roxette")]
     
 def add():
-    name = input("What is the song name? ").title()
+    song = input("What is the song name? ").title()
     artist = input("Who is the artist? ").title()
-    music = (name, artist)
+    music = (song, artist)
     music_library.append(music)
-    print(f'{name} by {artist} has been successfully added to your library!')
+    print(f'{song} by {artist} has been successfully added to your library!')
 
 def remove():
-    name = input("What is the title of what you would wish to remove? ").title()
-    artist = input(f"Who is {name} by?" ).title()
-    music = (name, artist)
+    song = input("What is the title of what you would wish to remove? ").title()
+    artist = input(f"Who is {song} by?" ).title()
+    music = (song, artist)
     music_library.remove(music)
     if music in music_library:
         print("It was not removed successfully.")
     else: 
-        print(f'{name} by {artist} has been sucessfully removed.')
+        print(f'{song} by {artist} has been sucessfully removed.')
 
 def display():
     if len(music_library) == 0:
@@ -33,17 +33,18 @@ def search():
         if look_for in song or look_for in artist:
             found.append((song, artist))
     if found:
-        print("RESULTS:___________")
+        print("________RESULTS:___________")
         for song, artist in found:
-            print(f"Song: {song} by {artist}")
+            print(f"FOUND: {song} by {artist}\n")
+            print("___________________________")
     else:
         print(f"No matching songs or artists found for '{look_for}'.")
     
     
 
 def main():
+    display()
     while True:
-        display()
         print('')
         question = input("""What would you like to do?: 
                         1. add to library
