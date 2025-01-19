@@ -1,6 +1,6 @@
 #Nicole's Personal Library
 
-music_library = [("Dance Away", "Roxette"), ("Play That Funky Music", "Wild Cherry"), ("I've Had Enough(Into the Fire)", "KISS"),
+music_library = [("Dance Away", "Roxette"), ("Play That Funky Music", "Wild Cherry"), ("I've Had Enough(Into the Fire)", "Kiss"),
          ("Zanzibar", "Billy Joel"), ("Physical Fasination", "Roxette"), ("The Look", "Roxette")]
     
 def add():
