@@ -17,10 +17,8 @@ def randomizer():
         a = input(f"You can pick any specical characters! They include: {a2}\n")
         required_specials = []
         required_specials.append(a)
-        for a in string.punctuation:
-            print("You chose:\n", required_specials)
-        else:
-            print("Nice try, actually choose a required SPECIAL character(s)...")
+        print("You chose:\n", required_specials)
+    
     elif criteria == '2':
         b2 = string.digits
         b = input(f"You can pick any digits! They include: {b2}\n")
@@ -34,8 +32,13 @@ def randomizer():
         required_phrase.append(c)
         print("You chose:\n", required_phrase)
     elif criteria == '4':
-        pass
+        return 'exit'
     else:
         print("not a valid choice. Pick again\n")
 
 randomizer()
+
+
+"LaRose, Miller, K"
+
+"Blunt, Shurtz, Childress, Lamb,"
