@@ -26,7 +26,7 @@ def randomizer(): #Randomizes a giant list containing all characters and prints 
         print("Dude, seriously choose a number higher than 8")
         return 'error'
 
-    for i in range(1,5):
+    for i in range(1,5): #Repeats 4 times.
         random.shuffle(big_list)
         new_list = big_list[1:num+1-a] #shortens the list so the users required input can be printed in all versions!
         final = new_list+required_list #Adds the users chosen characters to the new list
