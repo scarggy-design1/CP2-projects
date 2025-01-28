@@ -29,7 +29,7 @@ def randomizer(): #Randomizes a giant list containing all characters and prints 
     for i in range(1,5):
         random.shuffle(big_list)
         new_list = big_list[1:num+1-a] #shortens the list so the users required input can be printed in all versions!
-        final = new_list+required_list
+        final = new_list+required_list #Adds the users chosen characters to the new list
         random.shuffle(final)
         print(*final, sep='') #gets rid of the[","] and combines the characters together
         print('')
@@ -42,7 +42,7 @@ def randomizer(): #Randomizes a giant list containing all characters and prints 
 
 
 
-def main(): #Main user interface
+def main(): #handles the return values.
     while True:
         print("Welcome to random password generator!")
         the_random = randomizer()
