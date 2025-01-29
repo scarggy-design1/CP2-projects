@@ -1,14 +1,16 @@
 #this is nicoles function
 
-
+venue_list = []
 
 def display_venue():
-    pass
+    
     
 def venue_add():
    ask = input("What is the name of the venue you would like to add?: ")
    time = input(f"What times are available for the {ask}?")
    venue = (ask, time)
+   venue_list.append(venue)
+   return venue_list
 
 
 
