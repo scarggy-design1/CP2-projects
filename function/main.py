@@ -14,11 +14,11 @@ def display_venues():
         print("No venues available.")
 
 def add_venue():
-    venue = input("What is the name of the venue you would like to add?: ")
+    venue = input("What is the name of the venue you would like to add?: ").lower()
     venue_names.append(venue)
     print(f"{venue} added!")
     print("")
-    stage = input(f"Enter the name of the stage for {venue}!: ")
+    stage = input(f"Enter the name of the stage for {venue}!: ").lower()
     venue_stages[venue] = stage
     venue_equipment[venue] = [] 
     print(f"{stage} was added to the {venue}.")
@@ -26,7 +26,7 @@ def add_venue():
 def remove_venue():
     display_venues()
     print("__________________")
-    venue = input("Which venue would you like to remove?: ")
+    venue = input("Which venue would you like to remove?: ").lower()
     if venue in venue_names:
         venue_names.remove(venue)
         del venue_stages[venue]  
@@ -45,18 +45,18 @@ def display_stages():
         print("There are no stages yet.")
 
 def add_equipment():
-    venue = input("Enter the venue where you want to add equipment: ").title()
+    venue = input("Enter the venue where you want to add equipment: ").lower()
     if venue in venue_names:
-        equipment = input("Enter the equipment name to add: ")
+        equipment = input("Enter the equipment name to add: ").lower()
         venue_equipment[venue].add(equipment)
         print(f"{equipment} added to venue {venue} successfully! ")
     else:
         print(f"{venue} was not found.")
 
 def remove_equipment():
-    venue = input("What Venue would you like to remove from?: ")
+    venue = input("What Venue would you like to remove from?: ").lower()
     if venue in venue_names:
-        equipment = input("Enter the equipment name to remove: ")
+        equipment = input("Enter the equipment name to remove: ").lower()
         if equipment in venue_equipment[venue]:
             venue_equipment[venue].remove(equipment)
             print(f"Equipment {equipment} removed from {venue} successfully!")
