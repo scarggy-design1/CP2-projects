@@ -1,8 +1,8 @@
 #this is nicoles function
 
-venue_names = []  
-venue_stages = {} 
-venue_equipment = {}  
+venue_names = set()  
+venue_stages = {}
+venue_equipment = {}
 
 def display_venues():
     if venue_names:
@@ -15,7 +15,7 @@ def display_venues():
 
 def add_venue():
     venue = input("What is the name of the venue you would like to add?: ").lower()
-    venue_names.append(venue)
+    venue_names.add(venue)
     print(f"{venue} added!")
     print("")
     stage = input(f"Enter the name of the stage for {venue}!: ").lower()
@@ -48,7 +48,7 @@ def add_equipment():
     venue = input("Enter the venue where you want to add equipment: ").lower()
     if venue in venue_names:
         equipment = input("Enter the equipment name to add: ").lower()
-        venue_equipment[venue].add(equipment)
+        venue_equipment[venue].append(equipment)
         print(f"{equipment} added to venue {venue} successfully! ")
     else:
         print(f"{venue} was not found.")
@@ -71,12 +71,13 @@ def display_equipment():
         for venue, equipment in venue_equipment.items():
             stage = venue_stages[venue] 
             if equipment:
+                print("______________________________________________")
                 print(f"Venue: {venue} | Stage: {stage} | Equipment:")
-                print("_____________")
                 for item in equipment:
                     print(f"   - {item}")
             else:
-                print(f"Venue: {venue} | Stage: {stage} -> No equipment")
+                print("________________________________________________")
+                print(f"Venue: {venue} | Stage: {stage} | No equipment")
     else:
         print("No equipment available.")
 
