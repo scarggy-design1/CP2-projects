@@ -35,6 +35,7 @@ def convert_EM():  #converts english to morse code
 
     print(*empty, sep=" ") 
     print('')
+    print("/ / is end of the word and / is end of the letter.")
 
 def convert_ME(): #converts morse code to english
     dots = input("""What is your sentence/word you'd like to convert? Please put spaces between letters in morse, and separate with /'s: 
@@ -65,6 +66,7 @@ def convert_ME(): #converts morse code to english
 def main(): #user interface. Main function that manages the other funct1ions
     while True:
         ask = input("""
+Welcome to Morse code translator!
 What would you like to do?
 1) Convert from English
 2) Convert from Morse
