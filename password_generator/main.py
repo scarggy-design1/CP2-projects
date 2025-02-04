@@ -66,7 +66,7 @@ def randomizer(): #Randomizes a giant list containing all characters and prints 
         new_list = big_list[1:num+1-a] #shortens the list so the users required input can be printed in all versions!
         final = new_list+required_list #Adds the users chosen characters to the new list
         random.shuffle(final)
-        print(*final, sep='') #gets rid of the[","] and combines the characters together
+        print(*final, sep=' ') #gets rid of the[","] and combines the characters together
         print('')
 
     return 'break'
