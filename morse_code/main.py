@@ -12,7 +12,7 @@ specifc_morse = ['.-','-...','-.-.','-..','.','..-.','--.','....','..',
 MORSE_CODES = ['.-','-...','-.-.','-..','.','..-.','--.','....','..',
 '.---','-.-','.-..','--','-.','---','.--.','--.-','.-.','...','-','..-','...-','.--','-..-','-.--','--..', ' ']
 
-def convert_EM(): #converts english to morse code
+def convert_EM():  #converts english to morse code
     word = input("What is your sentence/word you'd like to convert?: ").upper()
     finalWord = list(word)
     
