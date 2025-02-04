@@ -68,6 +68,7 @@ def main():
 What would you like to do?
 1) Convert from English
 2) Convert from Morse
+3) exit
                     """)
         if ask == '1':
             english_morse = convert_EM()
@@ -77,6 +78,8 @@ What would you like to do?
             morse_english = convert_ME()
             if morse_english == 'error':
                 print("Try again")
+        elif ask == '3':
+            break
         else:
             print("Pick a valid input. TRY AGAIN.")
 
