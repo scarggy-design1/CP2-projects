@@ -12,12 +12,11 @@ specifc_morse = ['.-','-...','-.-.','-..','.','..-.','--.','....','..',
 MORSE_CODES = ['.-','-...','-.-.','-..','.','..-.','--.','....','..',
 '.---','-.-','.-..','--','-.','---','.--.','--.-','.-.','...','-','..-','...-','.--','-..-','-.--','--..', ' ']
 
-def convert_EM():
+def convert_EM(): #converts english to morse code
     word = input("What is your sentence/word you'd like to convert?: ").upper()
     finalWord = list(word)
     
-    # Check if there are any invalid characters
-    if any(char in SYM_NUM for char in finalWord) and '.' not in finalWord:
+    if any(char in SYM_NUM for char in finalWord) and '.' not in finalWord: #checks for any characters that shouldnt be in the english
         print("You cannot have numbers or special characters. (excluding periods)")
         return 'error'
     
@@ -37,19 +36,19 @@ def convert_EM():
     print(*empty, sep=" ") 
     print('')
 
-def convert_ME():
+def convert_ME(): #converts morse code to english
     dots = input("""What is your sentence/word you'd like to convert? Please put spaces between letters in morse, and separate with /'s: 
                  EXAMPLE: ... / --- / ... OR ...   ---   ...
     """)
     finalDots = dots.split()
     
-    if any(char not in specifc_morse for char in finalDots):
+    if any(char not in specifc_morse for char in finalDots): #checks for any characyers that shouldnt be in the given morse
         print("You cannot have numbers or special characters. (excluding .-/)")
         return 'error'
     
     empty = []
     for code in finalDots:
-        if code == '/':
+        if code == '/': #checks for / in the variable code
             empty.append(' ')
         else:
             try:
@@ -62,7 +61,7 @@ def convert_ME():
     print(*empty, sep="") 
     print('')
 
-def main():
+def main(): #user interface. Main function that manages the other functions
     while True:
         ask = input("""
 What would you like to do?
