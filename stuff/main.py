@@ -7,7 +7,7 @@ car = {
     "Color": "Red"
 }
 
-print(car["Make"][2])
+print(car["Make"])
 
 
 students = {
@@ -25,14 +25,3 @@ students = {
     }
 }
 
-print(students["sixth"][2])
-
-
-x = 5
-
-if x == 5:
-    print("AYE")
-elif x < 6:
-    print("AYE")
-elif x > 4:
-    print("AYE")

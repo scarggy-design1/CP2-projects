@@ -1,11 +1,14 @@
 #Nicole's Personal Library
 
-music_library = [("Dance Away", "Roxette"), ("Play That Funky Music", "Wild Cherry"), ("I've Had Enough(Into the Fire)", "Kiss"),
-         ("Zanzibar", "Billy Joel"), ("Physical Fasination", "Roxette"), ("The Look", "Roxette")]
+music_library = [("Dance Away", "Roxette",), ("Play That Funky Music", "Wild Cherry"), ("I've Had Enough(Into the Fire)", "Kiss"),
+("Zanzibar", "Billy Joel"), ("Physical Fasination", "Roxette"), ("The Look", "Roxette")]
+
+#    genre = input(f"What is the genre of {song} by {artist}?: ")
     
 def add(): #Function adds a song to the library
     song = input("What is the song name? ").title()
     artist = input("Who is the artist? ").title()
+
     music = (song, artist)
     music_library.append(music)
     print(f'{song} by {artist} has been successfully added to your library!')
