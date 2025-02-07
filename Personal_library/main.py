@@ -15,14 +15,21 @@ music_library = [{
 },
 
 }]
-
-print(music_library)
-
+#key:{key: value, key: value}
 #genre = input(f"What is the genre of {song} by {artist}?: ")
     
 def add(): #Function adds a song to the library
     song = input("What is the song name? ").title()
     artist = input("Who is the artist? ").title()
+    genre = input(f"What is the genre of {song} by {artist}?: ")
+    empty = {
+    song:{
+"Artist": artist,
+"Album": album,
+"Year": year,
+"Genre": 
+},
+}
 
     music = (song, artist)
     music_library.append(music)
