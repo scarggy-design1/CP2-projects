@@ -4,38 +4,22 @@ music_library = [{
 "Dance Away":{
 "Artist": "Roxette",
 "Album": "Look Sharp",
-"Year": 1988,
+"Year": '1988',
 "Genre": "Rock"
 },
 "Heavens On Fire":{
 "Artist": "Kiss",
 "Album": "Smashes Thrashes & Hits",
-"Year": 1988,
+"Year": '1988',
 "Genre": "Rock"
 },
 
 }]
 
 
-def check():
-    for key in music_library[0].items():
-        for key in music_library[0].items():
-            if key != song:
-                not_there = True
-            elif key == song:
-                not_there = False
-                break
-            
-        if not_there == True:
-            return 'go ahead'
-        elif not_there == False:
-            num=+1
-            new_song = song + f'({num})'
-            print(new_song)
-            return new_song
-
 
 def add(): #Function adds a song to the library
+    num = 1
     song = input("What is the song name? ").title()
     artist = input("Who is the artist? ").title()
     album = input("What is the album that it is from? ").title()
@@ -44,6 +28,8 @@ def add(): #Function adds a song to the library
     except ValueError:
         print("Choose a valid NUMBER.")
         return 'error'
+    
+    str(year)
 
     genre = input(f"What is the genre of {song} by {artist}?: ").title()
     empty = {
@@ -54,32 +40,30 @@ def add(): #Function adds a song to the library
 "Genre": genre
 },
 }
- for key in music_library[0].items():
-        for key in music_library[0].items():
-            if key != song:
-                not_there = True
-            elif key == song:
-                not_there = False
-                break
-            
-        if not_there == True:
-            music_library[0].update(empty)
-            print(f'{song} by {artist} has been successfully added to your library!')
-        elif not_there == False:
+    
+    not_there = True
+    for key, value in music_library[0].items():
+        if key != song and value != artist:
+            pass
+        elif key == song:
+            not_there = False
             num=+1
-            new_song = song + f'({num})'
-            print(new_song)
-
-       
-    elif check(song) != 'go ahead':
+            
+    if not_there == True:
+        music_library[0].update(empty)
+        print(f'{song} by {artist} has been successfully added to your library!')
+    elif not_there == False:
+        new_song = song + f'({num})'
         empty = {
-    check(song):{
+    new_song:{
 "Artist": artist,
 "Album": album,
 "Year": year,
 "Genre": genre
 },
 }   
+        music_library[0].update(empty)
+        print(f'{song} by {artist} has been successfully added to your library!')
 
 
     
@@ -124,16 +108,19 @@ def display(): #funtion displays the library unless theres nothing there
                 print("__________________________________________")
 
 def search(): #Function searches for a title or artist
-    look_for = input("Enter the song title or artist to search for: ").title()
-    found = []
+    num = 0
+    look_for = input("Enter the song title, artist, year, genre, or album to search for: ").title()
     print("__________________RESULTS___________________")
     for key, value in music_library[0].items():
         if not(key == look_for or value['Artist'] == look_for or value['Album'] == look_for or value['Year'] == look_for or value['Genre'] == look_for):
-            print("No results.")
+            pass
         elif key == look_for or value['Artist'] == look_for or value['Album'] == look_for or value['Year'] == look_for or value['Genre'] == look_for:
             print(key)
             print(music_library[0][key])
             print('')
+            num = 1
+    if num <1:
+        print("No results")
     print("______________________________________________")
 
     
