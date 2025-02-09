@@ -2,12 +2,12 @@
 
 music_library = [{
 "Dance Away":{
-"Artist": "Roxette",
+"Artist": "Kiss",
 "Album": "Look Sharp",
 "Year": 1988,
 "Genre": "Rock"
 },
-"Heaven's On Fire":{
+"Heavens On Fire":{
 "Artist": "Kiss",
 "Album": "Smashes Thrashes & Hits",
 "Year": 1988,
@@ -15,35 +15,42 @@ music_library = [{
 },
 
 }]
-#key:{key: value, key: value}
-#genre = input(f"What is the genre of {song} by {artist}?: ")
-    
+
+
+
 def add(): #Function adds a song to the library
     song = input("What is the song name? ").title()
     artist = input("Who is the artist? ").title()
-    genre = input(f"What is the genre of {song} by {artist}?: ")
+    album = input("What is the album that it is from? ")
+    try:
+        year = int(input("What year did it come out?:  "))
+    except ValueError:
+        print("Choose a valid NUMBER.")
+        return 'error'
+
+    genre = input(f"What is the genre of {song} by {artist}?: ").title()
     empty = {
     song:{
 "Artist": artist,
 "Album": album,
 "Year": year,
-"Genre": 
+"Genre": genre
 },
 }
-
-    music = (song, artist)
-    music_library.append(music)
+    music_library[0].update(empty)
     print(f'{song} by {artist} has been successfully added to your library!')
 
 def remove(): #Funtion removes a song from the library
     song = input("What is the title of what you would wish to remove? ").title()
     artist = input(f"Who is {song} by?" ).title()
-    music = (song, artist)
-    music_library.remove(music)
-    if music in music_library:
-        print("It was not removed successfully.")
-    else: 
-        print(f'{song} by {artist} has been sucessfully removed.')
+    for key, value in music_library[0].items():
+        if key == song and value["Artist"] == artist:
+            del music_library[0][key]
+            print("The song was sucessfully removed.")
+            return
+    print("An error occurred. The song was either not found or was not removed properly.")
+
+        
 
 def display(): #funtion displays the library unless theres nothing there
     if len(music_library) == 0:
@@ -54,16 +61,16 @@ def display(): #funtion displays the library unless theres nothing there
 def search(): #Function searches for a title or artist
     look_for = input("Enter the song title or artist to search for: ").title()
     found = []
-    for song, artist in music_library:
-        if look_for in song or look_for in artist:
-            found.append((song, artist))
-    if found:
-        print("________RESULTS:___________")
-        for song, artist in found:
-            print(f"FOUND: {song} by {artist}\n")
-            print("___________________________")
-    else:
-        print(f"No matching songs or artists found for '{look_for}'.")
+    print("__________________RESULTS___________________")
+    for key, value in music_library[0].items():
+        if not(key == look_for or value['Artist'] == look_for or value['Album'] == look_for or value['Year'] == look_for or value['Genre'] == look_for):
+            print("No results.")
+        elif key == look_for or value['Artist'] == look_for or value['Album'] == look_for or value['Year'] == look_for or value['Genre'] == look_for:
+            print(key)
+            print(music_library[0][key])
+            print('')
+    print("______________________________________________")
+
     
     
 
