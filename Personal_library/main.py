@@ -83,7 +83,7 @@ def remove(): #Funtion removes a song from the library
 
         
 
-def display(): #funtion displays the library unless theres nothing there
+def display(): #funtion displays the library with a choice of detailed or simple unless theres nothing there
     if len(music_library) == 0:
         print("There is nothing in your music library currently.")
     else:
@@ -107,7 +107,7 @@ def display(): #funtion displays the library unless theres nothing there
                 print("Genre:", value['Genre'])
                 print("__________________________________________")
 
-def search(): #Function searches for a title or artist
+def search(): #Function searches for a song name, artist, album,  or year
     num = 0
     look_for = input("Enter the song title, artist, year, genre, or album to search for: ").title()
     print("__________________RESULTS___________________")
