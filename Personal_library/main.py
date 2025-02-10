@@ -41,7 +41,7 @@ def add(): #Function adds a song to the library
 },
 }
     
-    not_there = True
+    not_there = True #Checks to see if there is any songs with that same name. if there is, it will change not_there to false
     for key, value in music_library[0].items():
         if key != song and value != artist:
             pass
