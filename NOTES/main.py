@@ -12,5 +12,5 @@ with open("NOTES/user_info.csv") as file:
     for row in reader:
         users.update({row[0]:row[1]})
 
-print(users)
+
     
