@@ -13,7 +13,7 @@ def entire_thing(): #Prints the entire list of movies
     print("\nFull Movie List:")
     print("_____________________________________________")
     for movie in movies:
-        print(f"Title: {movie['Title']}")
+        print(f"{movie['Title']}")
         print(f"Rating: {movie['Rating']}")
         print(f"Genre: {movie['Genre']}")
         print(f"Director: {movie['Director']}")
