@@ -2,7 +2,6 @@
 
 to_do_list = []
 with open("ToDo/to_do.txt", "r") as file: 
-    reader = 
     for row in reader:
         to_do_list.append(row)
 
@@ -19,7 +18,7 @@ entire_list()
 
 
 def add():
-    add_to
+    pass
 
 def complete():
     pass
