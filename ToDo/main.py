@@ -26,5 +26,3 @@ def complete():
 def delete():
     pass
 
-
-
