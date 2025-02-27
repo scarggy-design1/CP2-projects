@@ -2,10 +2,11 @@
 import random
 
 def one_ten():
+    score = 0
     current = 0
     streak = 0
     while True:
-            comp_num = random.randint(1,2)
+            comp_num = random.randint(1,10)
             while True:
                 try:
                     user_num = int(input("\nGuess a number from 1-10!\n      "))
@@ -21,13 +22,13 @@ def one_ten():
                     print("\n--------------CONGRATTS!!!! YOU DID IT----------------\n")
                     streak+=1
                     if current <= 3 and current > 0:
-                        score = streak*current
+                        score = score+streak*2
                         current = 0
                     elif current > 3:
                         score+=1
                         current = 0
                     elif current == 0:
-                        ufhwiuehfiuhwiuf
+                        score = score+streak*4
                     while True:
                         play = input(f"SCORE: {score}\nSTREAK: {streak}\nWould you like to keep playing?(yes or no)\n ").title()
                         if play == 'No':
@@ -47,27 +48,35 @@ def one_ten():
 
 
 def one_hundred():
+    score = 0
     current = 0
     streak = 0
     while True:
             comp_num = random.randint(1,100)
             while True:
                 try:
-                    user_num = int(input("\nGuess a number from 1-100!"))
+                    user_num = int(input("\nGuess a number from 1-100!\n      "))
                     if user_num >= 1 and user_num <= 100:
                         pass
                     else:
+                        print("-------\nCHOOSE FROM 1-100\n-------")
                         continue
                 except ValueError:
                     print("Please choose a valid NUMBER.")
                     continue
                 if user_num == comp_num:
-                    print("--------------CONGRATTS!!!! YOU DID IT----------------")
+                    print("\n--------------CONGRATTS!!!! YOU DID IT----------------\n")
                     streak+=1
-                    current+=1
-                    score = streak*current
+                    if current <= 3 and current > 0:
+                        score = score+streak*2
+                        current = 0
+                    elif current > 3:
+                        score+=1
+                        current = 0
+                    elif current == 0:
+                        score = score+streak*4
                     while True:
-                        play = input(f"SCORE: {score}\n Would you like to keep playing?(yes or no)\n ").title()
+                        play = input(f"SCORE: {score}\nSTREAK: {streak}\nWould you like to keep playing?(yes or no)\n ").title()
                         if play == 'No':
                             return score, 'end'
                         elif play == 'Yes':
@@ -75,7 +84,10 @@ def one_hundred():
                         elif play != 'Yes' and play != 'No':
                             print("Choose yes or no. ")
                             continue
+                    break
                 elif user_num != comp_num:
-                    print("Nope! Try again!\n")
+                    print("Nope! Try again!")
+                    print("\n")
                     streak = 0
+                    current+=1
                     continue
