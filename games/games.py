@@ -13,7 +13,7 @@ def one_ten():
                     if user_num >= 1 and user_num <= 10:
                         pass
                     else:
-                        print("_______\nCHOOSE FROM 1-10\n_______")
+                        print("-------\nCHOOSE FROM 1-10\n-------")
                         continue
                 except ValueError:
                     print("Please choose a valid NUMBER.")
@@ -40,7 +40,10 @@ def one_ten():
                             continue
                     break
                 elif user_num != comp_num:
-                    print("Nope! Try again!")
+                    if user_num > comp_num:
+                        print("Go a bit lower!")
+                    elif user_num < comp_num:
+                        print("Go higher!")
                     print("\n")
                     streak = 0
                     current+=1
@@ -86,7 +89,10 @@ def one_hundred():
                             continue
                     break
                 elif user_num != comp_num:
-                    print("Nope! Try again!")
+                    if user_num > comp_num:
+                        print("Go a bit lower!")
+                    elif user_num < comp_num:
+                        print("Go higher!")
                     print("\n")
                     streak = 0
                     current+=1
