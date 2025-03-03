@@ -18,19 +18,26 @@ def entire_thing():
                     print(line, end='')
                 break
 
+def word_count(file):
+    number_of_words = 0
+    with open(file,'r') as f:
+        data = f.read()
+        lines = data.split()
+    number_of_words += len(lines)
+    return number_of_words
 
 def add():
-    while True: 
-        print("\nWhat is the file's relative path?: ")
-        print("The choices you have for file paths are:\n  word_counter/doc.txt\n  word_counter/other_doc.txt\n  or type in the format of word_counter/[INSERT NAME OF THE FILE].txt and it will be created")
-        file = input('')
-        new = input("What would you like to add?: ")
-        with open(file, "a") as f: #opens file with append so it adds instead of rewriting the entire thing
-            f.write(f"{new}\n")
-            content = f.readlines()
-            words = content.split()
-            word_count = len(words)
-            f.write(f"  {word_count} word(s) at {timestamp()}")
-            break
+    print("\nWhat is the file's relative path?: ")
+    print("The choices you have for file paths are:\n  word_counter/doc.txt\n  word_counter/other_doc.txt\n  or type in the format of word_counter/[INSERT NAME OF THE FILE].txt and it will be created")
+    file = input('')
+    new = input("What would you like to add?: ")
+    with open(file, "a") as f: #opens file with append so it adds instead of rewriting the entire thing
+        f.write(f"{new}\n")
+    
+    with open(file, 'a') as f:
+        words = word_count(file)
+        f.write(f"  {words} word(s) at {timestamp()}")
+
+
 
         
