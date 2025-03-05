@@ -32,11 +32,11 @@ def add():
     file = input('')
     new = input("What would you like to add?: ")
     with open(file, "a") as f: #opens file with append so it adds instead of rewriting the entire thing
-        f.write(f"{new}\n")
+        f.write(f"\n{new}\n")
     
     with open(file, 'a') as f:
         words = word_count(file)
-        f.write(f"  {words} word(s) at {timestamp()}")
+        f.write(f"\n  {words} word(s) at {timestamp()}\n")
 
 
 
