@@ -1,13 +1,14 @@
 
-from character_creation import create as creation, characters as character
-
+from character_creation import create as creation
+from battle import main_game as main_g
 def main():
     while True:
-        ask = input("WELCOME TO (drum roll please)\n-- THE GAME --\nBefore you play, what would you like to do?\n1) CREATE character\n2) PICK precreated character\n3) EXIT").strip()
+        ask = input("WELCOME TO (drum roll please)\n-- THE GAME --\nBefore you play, what would you like to do?\n1) CREATE character\n2) PICK precreated character\n3) EXIT\n").strip()
         if ask == '1':
             creation()
+            main_g()
         elif ask == '2':
-            character()
+            main_g()
         elif ask == '3':
             break
         else:
@@ -15,3 +16,5 @@ def main():
         
 
 main()
+
+
