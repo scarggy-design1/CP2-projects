@@ -1,125 +1,78 @@
 import csv
+import time
 import random
 
-# Helper function to load characters from a CSV file
-def load_characters():
-    characters = []
-    try:
-        with open("BATTLE/characters.csv","r") as file:
-            reader = csv.DictReader(file)
-            for row in reader:
-                characters.append({
-                    'name': row['name'],
-                    'speed': int(row['speed']),
-                    'health': int(row['health']),
-                    'brawn': int(row['brawn']),
-                    'defense': int(row['defense']),
+from damage import randomiz as randomizer, calc as calculate_damage
+from load import save_characters, save_monsters
 
-                })
-    except FileNotFoundError:
-        print("No character data found.")
-    return characters
+def battle(user_character, monster, characters, monsters):
+    print(f"\nBATTLE START!\n----------------\n")
+    x = random.randint(1,2)
 
-# Helper function to load monsters from a CSV file
-def load_monsters():
-    monsters = []
-    try:
-        with open("BATTLE/mosters.csv", "r") as file:
-            reader = csv.DictReader(file)
-            for row in reader:
-                monsters.append({
-                    'name': row['name'],
-                    'speed': int(row['speed']),
-                    'health': int(row['health']),
-                    'brawn': int(row['brawn']),
-                    'defense': int(row['defense'])
-                })
-    except FileNotFoundError:
-        print("No monster data found.")
-    return monsters
+    stat_user, stat_monster = randomizer(user_character, monster)
 
-
-def calculate_damage(attacker, defender):
-    damage = max(0, attacker['brawn'] - defender['defense'])  # Simple damage calculation
-    return damage
-
-
-def battle(user_character, monster):
-    print(f"\nThe battle begins between {user_character['name']} and {monster['name']}!")
-    
-    # Determine who attacks first based on highest stat
-    user_highest_stat = max(user_character, key=user_character.get)  # Compare highest stat
-    monster_highest_stat = max(monster, key=monster.get)
-    
-    if user_character[user_highest_stat] > monster[monster_highest_stat]:
+    # Now calculate the damage using the randomly selected stats
+    user_damage = calculate_damage(user_character, monster, stat_user, stat_monster)
+    monster_damage = calculate_damage(monster, user_character, stat_monster, stat_user)
+    if x == 1: #decides which character gets to go first based on chance
         print(f"{user_character['name']} attacks first!")
         first_attacker = 'user'
-    elif user_character[user_highest_stat] < monster[monster_highest_stat]:
+    elif x == 2:
         print(f"{monster['name']} attacks first!")
         first_attacker = 'monster'
-    else:
-        # If tied, speed determines who goes first
-        if user_character['speed'] > monster['speed']:
-            print(f"{user_character['name']} attacks first due to higher speed!")
-            first_attacker = 'user'
-        else:
-            print(f"{monster['name']} attacks first due to higher speed!")
-            first_attacker = 'monster'
 
-    while user_character['health'] > 0 and monster['health'] > 0:
+
+    while user_character['health'] > 0 and monster['health'] > 0: #Main loop that does the battle with switching turns
+        time.sleep(2)
         if first_attacker == 'user':
-            damage_to_monster = calculate_damage(user_character, monster)
-            monster['health'] -= damage_to_monster
-            print(f"\n{user_character['name']} attacks {monster['name']} for {damage_to_monster} damage!")
+            calculate_damage(user_character, monster, stat_user, stat_monster)
+            user_damage = calculate_damage(user_character, monster, stat_user, stat_monster)
+            monster['health'] -= user_damage
+            print(f"\nGOODNESS\n{user_character['name']} attacks {monster['name']} and dealt {user_damage} damage!")
             print(f"{monster['name']} has {monster['health']} health left.")
+            time.sleep(3) #Pauses for 3 seconds before continuing execution
             if monster['health'] <= 0:
-                print(f"{monster['name']} has been defeated! {user_character['name']} wins!")
+                print(f"--------------------\n{monster['name']} DEFEATED! {user_character['name']} wins!\n--------------------")
+                user_character['level'] += 1  #levels up monster
+                save_characters(characters) #saves data
                 return
             
-            # Monster's turn to attack
-            damage_to_user = calculate_damage(monster, user_character)
-            user_character['health'] -= damage_to_user
-            print(f"{monster['name']} attacks {user_character['name']} for {damage_to_user} damage!")
+            calculate_damage(monster, user_character, stat_monster, stat_user)
+            monster_damage = calculate_damage(monster, user_character, stat_monster, stat_user)
+            user_character['health'] -= monster_damage
+            print(f"\nLOOK AT THAT!!!\n{monster['name']} attacks {user_character['name']} for {monster_damage} damage!")
             print(f"{user_character['name']} has {user_character['health']} health left.")
+            time.sleep(2)
             if user_character['health'] <= 0:
-                print(f"{user_character['name']} has been defeated! {monster['name']} wins!")
+                print(f"--------------------\n{user_character['name']} has been DEFEATED! {monster['name']} wins!\n--------------------")
+                monster['level'] += 1  #levels up character
+                save_monsters(monsters)  #saves data
+                print(f'{monster['name']} is now {monster['level']}!')
                 return
             
-            first_attacker = 'monster'  # Switch turns
         else:
-            damage_to_user = calculate_damage(monster, user_character)
-            user_character['health'] -= damage_to_user
-            print(f"\n{monster['name']} attacks {user_character['name']} for {damage_to_user} damage!")
+            calculate_damage(monster, user_character, stat_monster, stat_user)
+            monster_damage = calculate_damage(monster, user_character, stat_monster, stat_user)
+            user_character['health'] -= monster_damage
+            print(f"\nYIKES!!!\n{monster['name']} attacks {user_character['name']} for {monster_damage} damage!")
             print(f"{user_character['name']} has {user_character['health']} health left.")
+            time.sleep(2)
             if user_character['health'] <= 0:
-                print(f"{user_character['name']} has been defeated! {monster['name']} wins!")
+                print(f"--------------------\n{user_character['name']} has been DEFEATED! {monster['name']} wins!\n--------------------")
+                monster['level'] += 1  #levels up character
+                save_monsters(monsters)  #saves data
                 return
 
-            # User's turn to attack
-            damage_to_monster = calculate_damage(user_character, monster)
-            monster['health'] -= damage_to_monster
-            print(f"{user_character['name']} attacks {monster['name']} for {damage_to_monster} damage!")
+            calculate_damage(user_character, monster, stat_user, stat_monster)
+            user_damage = calculate_damage(user_character, monster, stat_user, stat_monster)
+            monster['health'] -= user_damage
+            print(f"\n...GET A LOAD OF THIS GUY!\n{user_character['name']} attacks {monster['name']} and dealt {user_damage} damage!")
             print(f"{monster['name']} has {monster['health']} health left.")
+            time.sleep(2) #Pauses for 2 seconds before continuing execution
             if monster['health'] <= 0:
-                print(f"{monster['name']} DEFEATED! {user_character['name']} wins!")
+                print(f"--------------------\n{monster['name']} DEFEATED! {user_character['name']} wins!\n--------------------")
+                user_character['level'] += 1  #levels up monster
+                save_characters(characters) #saves data
                 return
-            
-            first_attacker = 'user' 
+        
 
-def main_game():
-    characters = load_characters()
-    monsters = load_monsters()
-    
-    if not characters or not monsters:
-        print("No characters or monsters available to fight.")
-        return
-
-    print("\nAvailable characters:")
-    for idx, character in enumerate(characters, start=1):
-        print(f"{idx}. {character['name']}")
-    
-    user_choice = int(input("\nSelect your character by number: ")) - 1
-    user_character = characters[user_choice]
-    monster = random.choice(monsters)
-    print(f"\n{monster['name']} appears!\n-FIGHT FOR YOUR LIFE-\n")
-    battle(user_character, monster)

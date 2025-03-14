@@ -5,7 +5,7 @@ import csv
 def checker(points):
     if points == 0:
         return True
-    elif points > 20:
+    elif points > 200:
         print('DUDE what the heck man dont input a negative number!! (bro really thought they could cheat...)\n')
         return False
     elif points < 0:
@@ -18,44 +18,46 @@ def checker(points):
 def create():
     print("Welcome to CREATION...\n")
     name = input("What is the name of your character: ")
-    points = 20
+    points = 200
     print(f"\nYou have {points} points to disperse among 4 skills\nCHOOSE WISELY.\n")
     
     try:
         speed = int(input(f"What is the speed of your character? You have {points} points left\n"))
         points -= speed
         if not checker(points):
-            create()
+            return
 
         health = int(input(f"What is the health of your character? You have {points} points left\n"))
         points -= health
         if not checker(points):
-            create()
+            return
 
         brawn = int(input(f"What is the strength of your character? You have {points} points left\n"))
         points -= brawn
         if not checker(points):
-            create()
+            return
 
         defense = int(input(f"What is the defense of your character? You have {points} points left\n"))
         points -= defense
         if points != 0:
             print("You had points left over kiddo... USE ALL OF THEM (trust me)\n")
-            create()
+            return
 
     except ValueError:
         print('Invalid input my guy (did u type a letter?). Please enter valid NUMBERS for all skills.')
-        create()
+        return
+    level = 1
     entire = {
         'name': name,
         'speed': speed,
         'health': health,
         'brawn': brawn,
-        'defense': defense
+        'defense': defense,
+        'level': level
     }
     
     with open("BATTLE/characters.csv", "a", newline='') as file:
-        fieldnames = ["name", "speed", "health", "brawn", "defense"]
+        fieldnames = ["name", "speed", "health", "brawn", "defense", "level"]
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         writer.writerow(entire)
     return entire

@@ -1,4 +1,8 @@
-name,speed,health,brawn,defense
-help?,6,8,3,3
-GOODDD IF U ARE ABOVE,6,7,4,3
-hero,4,4,4,8
+name,speed,health,brawn,defense,level
+hero,40,40,40,80,1
+holy,50,50,50,50,1
+sonic,140,40,10,10,3
+ultimate life form,100,30,45,25,2
+Tails,70,60,40,50,4
+Radon,85,75,55,80,6
+Ozone Shield,80,87,70,80,8

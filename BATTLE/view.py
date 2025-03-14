@@ -1,1 +1,0 @@
-literally jyust view the characters and choose one
