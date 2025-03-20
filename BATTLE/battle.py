@@ -1,4 +1,3 @@
-import csv
 import time
 import random
 
@@ -11,7 +10,7 @@ def battle(user_character, monster, characters, monsters):
 
     stat_user, stat_monster = randomizer(user_character, monster)
 
-    # Now calculate the damage using the randomly selected stats
+    #Now calculate the damage using the randomly selected stats
     user_damage = calculate_damage(user_character, monster, stat_user, stat_monster)
     monster_damage = calculate_damage(monster, user_character, stat_monster, stat_user)
     if x == 1: #decides which character gets to go first based on chance
