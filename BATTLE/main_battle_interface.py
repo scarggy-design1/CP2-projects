@@ -32,10 +32,12 @@ def main_game():  # Runs the functions from the separate file to make the game r
         plot_character_radar(user_character)
         ask = input("Is this the character you want to pick? (yes or no)")
         if ask == 'yes' or ask == 'Yes':
-            pass
+            plot_character_radar.close()
         elif ask == 'no' or ask == 'No':
+            plot_character_radar.close()
             return
         else:
+            plot_character_radar.close()
             print("Please make sure you pick a VALID ANSWER MY GUY")
             return
     except:
