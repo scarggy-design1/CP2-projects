@@ -1,6 +1,6 @@
 import time
 import random
-
+from health_bar import plot_health_bars, plt  # Import the health bar plotting function
 from damage import randomiz as randomizer, calc as calculate_damage
 from load import save_characters, save_monsters
 
@@ -20,8 +20,12 @@ def battle(user_character, monster, characters, monsters):
         print(f"{monster['name']} attacks first!")
         first_attacker = 'monster'
 
+    plt.ion()  # Interactive mode on
+    user_max_health = user_character['health']
+    monster_max_health = monster['health']
 
     while user_character['health'] > 0 and monster['health'] > 0: #Main loop that does the battle with switching turns
+        plot_health_bars(user_character['health'], monster['health'], user_max_health, monster_max_health)
         time.sleep(2)
         if first_attacker == 'user':
             calculate_damage(user_character, monster, stat_user, stat_monster)
@@ -34,7 +38,7 @@ def battle(user_character, monster, characters, monsters):
                 print(f"--------------------\n{monster['name']} DEFEATED! {user_character['name']} wins!\n--------------------")
                 user_character['level'] += 1  #levels up monster
                 save_characters(characters) #saves data
-                return
+                break
             
             calculate_damage(monster, user_character, stat_monster, stat_user)
             monster_damage = calculate_damage(monster, user_character, stat_monster, stat_user)
@@ -47,7 +51,7 @@ def battle(user_character, monster, characters, monsters):
                 monster['level'] += 1  #levels up character
                 save_monsters(monsters)  #saves data
                 print(f'{monster['name']} is now {monster['level']}!')
-                return
+                break
             
         else:
             calculate_damage(monster, user_character, stat_monster, stat_user)
@@ -60,7 +64,7 @@ def battle(user_character, monster, characters, monsters):
                 print(f"--------------------\n{user_character['name']} has been DEFEATED! {monster['name']} wins!\n--------------------")
                 monster['level'] += 1  #levels up character
                 save_monsters(monsters)  #saves data
-                return
+                break
 
             calculate_damage(user_character, monster, stat_user, stat_monster)
             user_damage = calculate_damage(user_character, monster, stat_user, stat_monster)
@@ -72,6 +76,8 @@ def battle(user_character, monster, characters, monsters):
                 print(f"--------------------\n{monster['name']} DEFEATED! {user_character['name']} wins!\n--------------------")
                 user_character['level'] += 1  #levels up monster
                 save_characters(characters) #saves data
-                return
+                break
+    plt.ion
+    plt.show()  # Keep the plot displayed when the battle ends
         
 
