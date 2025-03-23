@@ -1,19 +1,25 @@
-
+import pandas as pd
 import csv
-def load_characters(): #Loads the characters from character file
+def load_characters():  # Loads characters from CSV using pandas
     characters = []
     try:
-        with open("BATTLE/characters.csv", "r") as file:
-            reader = csv.DictReader(file)
-            for row in reader:
-                characters.append({
-                    'name': row['name'],
-                    'speed': int(row['speed']),
-                    'health': int(row['health']),
-                    'brawn': int(row['brawn']),
-                    'defense': int(row['defense']),
-                    'level': int(row['level']), 
-                })
+        # Read the characters CSV file using pandas
+        df = pd.read_csv("BATTLE/characters.csv")
+        
+        # Print the entire dataframe to the console
+        print("\nAvailable characters:")
+        print(df.to_string(index=False))  # This will print all rows without the index
+        
+        # Convert the DataFrame to a list of dictionaries for further use in the game
+        for _, row in df.iterrows():
+            characters.append({
+                'name': row['name'],
+                'speed': int(row['speed']),
+                'health': int(row['health']),
+                'brawn': int(row['brawn']),
+                'defense': int(row['defense']),
+                'level': int(row['level']),
+            })
     except FileNotFoundError:
         print("No character data found.")
     return characters

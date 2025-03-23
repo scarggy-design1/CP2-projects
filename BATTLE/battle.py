@@ -22,10 +22,10 @@ def battle(user_character, monster, characters, monsters):
 
     plt.ion()  # Interactive mode on
     user_max_health = user_character['health']
-    monster_max_health = monster['health']
+
 
     while user_character['health'] > 0 and monster['health'] > 0: #Main loop that does the battle with switching turns
-        plot_health_bars(user_character['health'], monster['health'], user_max_health, monster_max_health)
+        plot_health_bars(user_character['health'], user_max_health)
         time.sleep(2)
         if first_attacker == 'user':
             calculate_damage(user_character, monster, stat_user, stat_monster)
