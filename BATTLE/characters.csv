@@ -2,7 +2,10 @@ name,speed,health,brawn,defense,level
 hero,40,40,40,80,1
 holy,50,50,50,50,1
 sonic,140,40,10,10,3
-ultimate life form,100,30,45,25,2
+ultimate life form,100,40,35,25,2
 Tails,70,60,40,50,4
 Radon,85,75,55,80,6
-Ozone Shield,80,87,70,80,10
+Ozone Shield,80,57,70,80,11
+Debbie,72,52,22,54,2
+
+Darrell,40,8,93,59,1

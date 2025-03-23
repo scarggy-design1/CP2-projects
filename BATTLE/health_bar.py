@@ -9,7 +9,7 @@ def plot_health_bars(user_health, user_max_health):
     fig, ax = plt.subplots(figsize=(8, 2))
 
     
-    ax.barh(0, user_health, color='green', height=0.2, label='User')
+    ax.barh(0, user_health, color='green', height=2, label='User')
 
    
     ax.set_ylim(-1, 1)  
