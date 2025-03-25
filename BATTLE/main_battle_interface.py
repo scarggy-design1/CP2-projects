@@ -1,3 +1,4 @@
+#This is lizzys battle assignment
 import random
 import time
 import pandas as pd
@@ -5,30 +6,31 @@ from battle import battle as battle_start
 from load import load_characters as charact, load_monsters as monst
 from stats import plot_character_radar
 
-def main_game():  # Runs the functions from the separate file to make the game run!
-    characters = charact()  # Load characters using the updated pandas-based load_characters()
-    monsters = monst()  # Load monsters
+def main_game():  #Runs the functions from the separate file to make the game run! Main battle interface
+    characters = charact()  #Load characters using the updated pandas-based load_characters()
+    monsters = monst()  #Load monsters
     
     if not characters or not monsters:
         print("No characters or monsters available to fight.")
         return
 
-    # Load the characters into a DataFrame
+    #Load the characters into a DataFrame
     data = pd.read_csv("BATTLE/characters.csv")
-
+    #Gets the min and max stats
     data['max'] = data[['speed', 'health', 'brawn', 'defense']].max(axis=1)
     data['min'] = data[['speed', 'health', 'brawn', 'defense']].min(axis=1)
 
-    # Select only the 'name', 'level', 'max_stat', and 'min_stat' columns
+    #have only the 'name', 'level', 'max_stat', and 'min_stat' columns
     selected_data = data[['name', 'level', 'max', 'min']]
 
-    # Display the DataFrame as a table with row numbers starting from 1
+    #Display the DataFrame as a table with row numbers starting from 1
     selected_data.index += 1  # Adjust the index to start from 1 instead of 0
     print(selected_data)
 
     try:
         user_choice = int(input("\nSelect your character by number: ")) - 1
         user_character = characters[user_choice]
+        print("Close the stat graph when you are done.")
         plot_character_radar(user_character)
         ask = input("Is this the character you want to pick? (yes or no)\n")
         if ask == 'yes' or ask == 'Yes':

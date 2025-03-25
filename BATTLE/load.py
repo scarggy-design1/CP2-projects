@@ -1,4 +1,4 @@
-
+#This is lizzys battle assignment
 import csv
 def load_characters():  # Loads characters from CSV using pandas
     characters = []

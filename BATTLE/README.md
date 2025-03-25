@@ -1,38 +1,31 @@
-# Name of Project
+# Battle Simulator
 
 ## project description
 ---
-paragrph descibirng project.  
-
-## Executian and useage
----
-paragraph describing how to use  
-![image](relative path to the image NOTE: image must be save in your repository)  
+This project is a simple battle simulator where you can create, pick, and battle characters and level up!
 
 ## Used technologies
 ---
 + Pandas
-`pip instal code for the library.`
+`pip install pandas`
 + Matplotlib
-`pip instal code for the library.`
+`pip install matplotlib`
 + Faker
-`pip instal code for the library.`  
+`pip install Faker`  
 
 ## Current features
 ---
-+ list of specific features you are proud of
-+ second feature im proud of
++ there is a radar chart that shows you your characters stats!
++ The program runs
 
 ## Contributors
 ---
-+ anyone who helped - and what they did
-+ anyone who helped - and what they did
-+ anyone who helped - and what they did
-+ anyone who helped - and what they did  
++ John Saldana - He helped me sort of understand what was going on and how to debug some issues
+
 
 ## Authors information
 ---
-short paragraph about you! (each member of your group)
+I am a 15 year old who has to take this class for college credits. I love coding simple things and python libraries are fascinating! 
 
 
 

@@ -1,4 +1,4 @@
-#This is Nicoles battle assignment
+#This is lizzys battle assignment
 import csv
 from generator import generate_character as gen
 
@@ -15,11 +15,11 @@ def checker(points):
     return True
 
 
-# Create new character function
-def create():
+
+def create(): #Creates characters
     print("Welcome to CREATION...\n")
     ask = input("Would you like to \n1) Make your own character\n2) GENERATE\n")
-    if ask == '1':
+    if ask == '1': #The user can pick and make their own character
         name = input("What is the name of your character: ")
         points = 200
         print(f"\nYou have {points} points to disperse among 4 skills\nCHOOSE WISELY.\n")
@@ -64,7 +64,7 @@ def create():
             writer = csv.DictWriter(file, fieldnames=fieldnames)
             writer.writerow(entire)
             return entire
-    elif ask == '2':
+    elif ask == '2': #The user will get a randomly generated character
         name, speed, health, brawn, defense, level = gen()
         entire = {
         'name': name,

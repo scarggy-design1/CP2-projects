@@ -1,10 +1,9 @@
 import time
 import random
-from health_bar import plot_health_bars, plt  # Import the health bar plotting function
 from damage import randomiz as randomizer, calc as calculate_damage
 from load import save_characters, save_monsters
 
-def battle(user_character, monster, characters, monsters):
+def battle(user_character, monster, characters, monsters): #The function that runs the battle
     print(f"\nBATTLE START!\n----------------\n")
     x = random.randint(1,2)
 
@@ -20,12 +19,8 @@ def battle(user_character, monster, characters, monsters):
         print(f"{monster['name']} attacks first!")
         first_attacker = 'monster'
 
-    plt.ion()  # Interactive mode on
-    user_max_health = user_character['health']
-
 
     while user_character['health'] > 0 and monster['health'] > 0: #Main loop that does the battle with switching turns
-        plot_health_bars(user_character['health'], user_max_health)
         time.sleep(2)
         if first_attacker == 'user':
             calculate_damage(user_character, monster, stat_user, stat_monster)
@@ -77,8 +72,6 @@ def battle(user_character, monster, characters, monsters):
                 user_character['level'] += 1  #levels up monster
                 save_characters(characters) #saves data
                 break
-    plt.ion
-    time.sleep(10)
-    plt.close()
+
         
 

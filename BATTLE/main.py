@@ -1,3 +1,4 @@
+#This is lizzys battle assignment
 import time
 from character_creation import create as creation
 from main_battle_interface import main_game as main_g
