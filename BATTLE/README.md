@@ -2,7 +2,7 @@
 
 ## project description
 ---
-This project is a simple battle simulator where you can create, pick, and battle characters and level up!
+This project is a simple battle simulator where you can create, pick, and battle characters and level up! The purpose of this project was to make a fun and enjoyable game for people to play.
 
 ## Used technologies
 ---
@@ -25,7 +25,7 @@ This project is a simple battle simulator where you can create, pick, and battle
 
 ## Authors information
 ---
-I am a 15 year old who has to take this class for college credits. I love coding simple things and python libraries are fascinating! 
+My name is Lizzy Saldana, and I am a 15 year old who has to take this coding class for college credits. I love coding simple things and python libraries are fascinating! 
 
 
 
