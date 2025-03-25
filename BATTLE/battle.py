@@ -78,7 +78,6 @@ def battle(user_character, monster, characters, monsters):
                 save_characters(characters) #saves data
                 break
     plt.ion
-    plt.show()  # Keep the plot displayed when the battle ends
     time.sleep(10)
     plt.close()
         

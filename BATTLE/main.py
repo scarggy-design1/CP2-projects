@@ -4,7 +4,7 @@ from main_battle_interface import main_game as main_g
 
 def main(): #main user interface
     while True:
-        time.sleep(1)#pauses execution for 1 second
+        time.sleep(0.5)#pauses execution for 1/2 second
         ask = input("WELCOME TO (drum roll please)\n-- THE GAME --\nBefore you play, what would you like to do?\n1) CREATE character\n2) PICK precreated character\n3) EXIT\n").strip()
         if ask == '1':
             creation()

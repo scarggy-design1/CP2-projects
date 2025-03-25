@@ -4,10 +4,6 @@
 ---
 paragrph descibirng project.  
 
-## Installation
----
-Not used for this class  
-
 ## Executian and useage
 ---
 paragraph describing how to use  
@@ -15,21 +11,17 @@ paragraph describing how to use
 
 ## Used technologies
 ---
-+ first library in the repository
++ Pandas
 `pip instal code for the library.`
-+ second library in the repository
++ Matplotlib
 `pip instal code for the library.`
-+ thrid library in the repository
++ Faker
 `pip instal code for the library.`  
 
 ## Current features
 ---
 + list of specific features you are proud of
 + second feature im proud of
-
-## Contributions
----
-Not used for this class
 
 ## Contributors
 ---
