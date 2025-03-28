@@ -1,7 +1,7 @@
 
 from amounts import coins as coin
 
-def main():
+def main(): #Main user interface
     while True:
         ask = input('WELCOME TO COIN CHANGER.\nFirst. What country will you like to pick?\n\n1) Russia\n2) USA\n3) Colombia\n4) Mexico\n')
         if ask == '1':
