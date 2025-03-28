@@ -1,11 +1,18 @@
 
 
 def calc(target):
+    """Needs to start with the one highest amount in the csv file
+    then once that number gives 0 and its int form, go to the next highest, etc etc
+    """
     pass
     
 
 def coins(country):
-    target = int(input('What is your target amount?: '))
+    try:
+        target = int(input('What is your target amount?: '))
+    except:
+        print("CHOOSE A NUMBER DOOD.")
+        
     if target <= 0: 
         print("Remember. No NEGATIVE numbers or 0!")
         return
