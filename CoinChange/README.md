@@ -6,7 +6,7 @@ Its a program that allows users to solve the Coin Change Problem by inputting a 
 
 ## Executian and useage
 ---
-paragraph describing how to use  
+Press the run button and follow the instructions as prompted.
 ![image](CoinChange/unnamed.png)  
 
 ## Used technologies
