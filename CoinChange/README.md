@@ -7,7 +7,7 @@ Its a program that allows users to solve the Coin Change Problem by inputting a 
 ## Executian and useage
 ---
 paragraph describing how to use  
-![image](relative path to the image NOTE: image must be save in your repository)  
+![image](images/unnamed.png)  
 
 ## Used technologies
 ---
