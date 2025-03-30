@@ -21,4 +21,4 @@ def main(): #Main user interface
             continue
 
 
-main()
+main() #Runs the entire program.
