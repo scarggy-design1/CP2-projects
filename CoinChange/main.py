@@ -19,3 +19,6 @@ def main(): #Main user interface
         else: 
             print('Choose a VALID OPTION')
             continue
+
+
+main()
