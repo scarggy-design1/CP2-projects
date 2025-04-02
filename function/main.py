@@ -36,6 +36,7 @@ def get_info():
     user = input('What is the name you signed up with, or wish to sign up with?:\n')
     password = input("What is your password?:\n")
     with open('function/finacial_data.csv', 'r') as file:
+        #If the user already exists, then check for password validity, 
         reader = csv.reader(file)
         data = list(reader)
         user_data = None
@@ -58,9 +59,9 @@ def get_info():
                     print("INCORRECT PASSWORD")
                     return
 
-    #If the user already exists, then check for password validity, If the user does not exist, then sign them up.)
+    #If the user does not exist, then sign them up.
     try:
-        bank = float(input("How much is in your bank account right now?:\n"))
+        bank = float(input("\nHow much is in your bank account right now?:\n"))
         salary = float(input('\nHow much do you make per year?:\n'))
         goal = float(input("\nWhat is your GOAL? (If you don't have one, input 0):\n"))
         savings = float(input("\nHow much do you have in SAVINGS? (If you don't have any, input 0):\n"))
