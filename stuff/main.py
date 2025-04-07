@@ -1,19 +1,24 @@
-import os
-from time import sleep
-def cs(): # Clear Screen
-    print("\033c",end="")
-# some text
-print("a")
-print("b")
-print("c")
-print("d")
-print("e")
-print("Screen will now be cleared in 5 Seconds")
+import matplotlib.pyplot as plt
 
-# Waiting for 5 seconds to clear the screen
-sleep(2)
-
-# Clearing the Screen
-cs()
+def pie_charts(expense):
+    # Get user data and expense category
+    one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve = info()
+    
+    # Define expense categories
+    if expense == 'Budgeting':
+        labels = ['Savings', 'House', 'Utilities', 'Insurance', 'Food', 'Entertainment', 'Healthcare', 'Phone', 'Pet']
+        expenses = [one, two, three, four, five, six, seven, eight, nine]
+    elif expense == 'Services':
+        labels = ['Utilities' ,'Insurance', 'food', 'Entertainment','Healthcare','Phone']
+        expenses = [one, two, three, four, five, six]
+    elif expense == 'All':
+        labels = ['Checkings','Salary','Goal','Savings', 'House', 'Utilities', 'Insurance', 'Food', 'Entertainment', 'Healthcare', 'Phone', 'Pet']
+        expenses = [one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve]
+    
+    # Plotting the pie chart
+    fig, ax = plt.subplots()
+    ax.pie(expenses, labels=labels, autopct='%1.1f%%')
+    plt.title(f"Expense: {expense}")
+    plt.show()
 
 
