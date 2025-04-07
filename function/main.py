@@ -1,80 +1,78 @@
 #Pie chart
 import csv
+from accounts import create_new_account, view_asset
 import matplotlib.pyplot as plt
+
 def pie_charts():
-    one, two, three, four, five,  six, seven, eight, nine, ten, eleven, twelve, expense = get_info()
-    if expense == 'Budgeting':
-        x = 'House'
-        y = 'Insurange'
-        z = 'Utility'
-        a = 'Food'
-        b = 'Entertainment'
-        c = 'Car'
-        d = 'Phone'
-        e = 'Pet'
-    elif expense == '[other thing]':
-        pass
-    elif expense == '[other thing]':
-        pass
-    elif expense == '[other thing]':
-        pass
-    elif expense == '[other thing]':
-        pass
-
-
-    labels = x, y, z, a, b, c, d, e
-    sizes = [one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve]
+    # Get user data and expense category
+    expense, one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve = get_info()
     
-
+    # Define expense categories
+    if expense == 'Budgeting':
+        categories = ['Savings', 'House', 'Utilities', 'Insurance', 'Food', 'Entertainment', 'Healthcare', 'Phone', 'Pet']
+        expenses = [one, two, three, four, five, six, seven, eight, nine]
+    elif expense == 'Services':
+        categories = ['Utilities' ,'Insurance', 'food', 'Entertainment','Healthcare','Phone']
+        expenses = [one, two, three, four, five, six]
+    elif expense == 'All':
+        categories = ['Checkings','Salary','Goal','Savings', 'House', 'Utilities', 'Insurance', 'Food', 'Entertainment', 'Healthcare', 'Phone', 'Pet']
+        expenses = [one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve]
+    
+    # Plotting the pie chart
     fig, ax = plt.subplots()
-    ax.pie(sizes, labels=labels)
-
+    ax.pie(expenses, labels=categories, autopct='%1.1f%%')
+    plt.title(f"Expense: {expense}")
     plt.show()
 
 
 def get_info():
-    user = input('What is the name you signed up with, or wish to sign up with?:\n')
-    password = input("What is your password?:\n")
+    user = input('What is the name you signed up with, or wish to sign up with?:\n').strip()
+    
+    # Check if the user already exists in the file
     with open('function/finacial_data.csv', 'r') as file:
-        #If the user already exists, then check for password validity, 
         reader = csv.reader(file)
         data = list(reader)
-        user_data = None
+
+        # Search for the user
         for row in data:
             if row[0] == user:
+                password = input("What is your password?:\n").strip() #If the user exists, check password
                 if row[1] == password:
-                    ask = input('Would you like to get a pie chart of your data?\n1) Yes\n2) No\n')
+                    print("Login successful!")
+                    ask = input('Would you like to get a pie chart of your data?\n1) Yes\n2) No\n').strip()
                     if ask == '1':
-                        choice = input('What expense would you like the pie chart for?\n1) Budgeting\n2) Services\n3) ALL\n')
+                        choice = input('What expense would you like the pie chart for?\n1) Budgeting\n2) Services\n3) ALL\n').strip()
                         if choice == '1':
-                            expense = 'Budgeting'
-                            return expense
+                            return 'Budgeting', [float(i) for i in row[4:15]]
                         elif choice == '2':
-                            expense = 'Services'
-                            return expense
+                            return 'Services',[float(i) for i in row[9:14]]
                         elif choice == '3':
-                            expense = 'All'
-                            return expense
-                elif row[1] != password:
-                    print("INCORRECT PASSWORD")
+                            return  'All', [float(i) for i in row[2:15]]
+                        else:
+                            print('Please choose a valid choice.\n')
+                            return
+                    elif ask == '2':
+                        option = input("Got it. Would you like to view a specific assest?\n1) Yes\n2) No").strip()
+                        if option == '1':
+                            view_asset(row)
+                        elif option == '2':
+                            print("Exiting...\n")
+                            return
+                else:
+                    print("Incorrect password.")
                     return
+        #if the user does not exist then ask if they wanna sign up
+        print("Account not found.")
+        create_account = input("Would you like to create a new account?\n1) Yes\n2) No\n").strip()
+        if create_account.lower() == 'yes':
+            create_new_account(user)
+            get_info()
+            
+        elif create_account.lower() == 'no':
+            print("Got it. Exiting...\n")
+            return
+        else:
+            return
+        
 
-    #If the user does not exist, then sign them up.
-    try:
-        bank = float(input("\nHow much is in your bank account right now?:\n"))
-        salary = float(input('\nHow much do you make per year?:\n'))
-        goal = float(input("\nWhat is your GOAL? (If you don't have one, input 0):\n"))
-        savings = float(input("\nHow much do you have in SAVINGS? (If you don't have any, input 0):\n"))
-        utilities = float(input("\nHow much do you spend on UTILITIES every year?:\n")) #Add an option where they can input per month then just multiply by 12
-        insurance = float(input("\nHow much do you spend on INSURANCE every year?:\n"))
-        food = float(input("\nHow much do you spend on FOOD per year?:\n"))
-        entertainment = float(input("\nHow much do you spend on ENTERTAINMENT per year?:\n"))
-        house = float(input("\nHow much money do you spend on HOUSE fees every year?:\n"))
-        healthcare = float(input("\nHow muhc do you spend on HEALTHCARE every year?:\n"))
-        phone = float(input("\nWhat is your PHONE bill per year?:\n"))
-        pet = float(input("\nHow much do you spend on PET related items per year?:\n"))
-    except:
-        print("CHOOSE A VALID ANSWER. TRY AGAIN")
-        return
-
-    pass
+get_info()

@@ -1,2 +1,5 @@
-user,password,bank,salary,goal,savings,utilities,insurance,food,entertainment,house,healthcare,phone,pet
-Test_user,X@9845seSAgehikk,1000000,50000,7000,135.9,300.99,798.56,12,1200,700,0
+user,password,checkings,salary,goal,savings,house,utilities,insurance,food,entertainment,healthcare,phone,pet
+johndoe,password123,1200,50000,15000,3000,1200,1500,3500,800,15000,2000,500,300
+janedoe,password456,2500,75000,20000,6000,1400,1800,4000,1000,18000,2500,600,400
+
+
