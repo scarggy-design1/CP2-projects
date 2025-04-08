@@ -20,5 +20,24 @@ def pie_charts(expense):
     ax.pie(expenses, labels=labels, autopct='%1.1f%%')
     plt.title(f"Expense: {expense}")
     plt.show()
+    
+assets = {
+    "Checkings": 1,
+    "Salary": 2,
+    "Goal": 4,
+    "Savings": 5,
+    "House": 6,
+    "Utilities": 7,
+    "Insurance": 8,
+    "Food": 9,
+    "Entertainment":9,
+    "Healthcare": 1,
+    "Phone": 4,
+    "Pet": 3
+    }
+
+print(f"Checkings: ${assets['Utilities']}\n")
 
 
+for asset, value in assets:
+    print(f"{asset}: ${value}\n")
