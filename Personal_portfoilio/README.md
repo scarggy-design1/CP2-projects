@@ -2,50 +2,27 @@
 
 ## project description
 ---
-paragrph descibirng project.  
-
-## Installation
----
-Not used for this class  
+A personal portfolio full of at least 6 other projects that I have made over the time. It has a user interface to help the user navigate through them, and get information. 
+ 
 
 ## Executian and useage
 ---
-paragraph describing how to use  
-![image](relative path to the image NOTE: image must be save in your repository)  
+Follow directions and type the number of the corresponding answer you want.
 
 ## Used technologies
 ---
-+ first library in the repository
-`pip instal code for the library.`
-+ second library in the repository
-`pip instal code for the library.`
-+ thrid library in the repository
-`pip instal code for the library.`  
+NONE
 
 ## Current features
 ---
-+ list of specific features you are proud of
-+ second feature im proud of
-
-## Contributions
----
-Not used for this class
++ I was able to figure out the os and sys things
++ The code manages the different modules and imports them into one main thing!
 
 ## Contributors
 ---
-+ anyone who helped - and what they did
-+ anyone who helped - and what they did
-+ anyone who helped - and what they did
-+ anyone who helped - and what they did  
++ Article on importing files from different folders - Helped me understand and use os and sys so it will work.
+
 
 ## Authors information
 ---
-short paragraph about you! (each member of your group)
-
-## Change Log
----
-not used for this class
-
-## License
----
-not used for this class
+My name is Lizzy Saldana, and I am a 15 year old who has to take this coding class for college credits. I love coding simple things and python libraries are fascinating! 
