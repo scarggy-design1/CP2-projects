@@ -35,6 +35,7 @@ import libr_main
 
 def mainuser():
     print("-----------\nWELCOME TO LIZZY SALDANA's PERSONAL PORTFOLIO\n-----------\n")
+    print('Please follow the directions, and pick the number that corresponds with the option you want.\n')
     while True:
         pick = input("What project would you like to view?\n1) Morse Code Translator\n2) Password Generator\n3) Movie Reccomender\n4) Guessing Game\n5) To-Do List\n6) Personal Library\n7) EXIT\n")
         if pick == '1':
