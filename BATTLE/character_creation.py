@@ -18,7 +18,7 @@ def checker(points):
 
 def create(): #Creates characters
     print("Welcome to CREATION...\n")
-    ask = input("Would you like to \n1) Make your own character\n2) GENERATE\n")
+    ask = input("Would you like to \n1) Make your own character\n2) GENERATE\n").strip()
     if ask == '1': #The user can pick and make their own character
         name = input("What is the name of your character: ")
         points = 200

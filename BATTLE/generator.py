@@ -6,6 +6,7 @@ fake = Faker()
 
 def generate_character():
     name = fake.name() #Generates a fake name
+    total = 0
     
     while total != 200: #Checks to see if the stats add up to 200 and doesn't stop looping until it does.
         speed = random.randint(1, 100)
