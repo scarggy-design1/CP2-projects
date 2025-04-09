@@ -75,5 +75,6 @@ def main(): #Main user interface
         elif ask == '5':
             break
 
-main() #Runs the program
+if __name__ == "__mainuser__":
+    main()
 

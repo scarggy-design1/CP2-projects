@@ -156,5 +156,6 @@ def main(): #Works as the user interface.
             print('')
             print("invalid choice! Pick again.")
 
-main()
+if __name__ == "__mainuser__":
+    main()
 

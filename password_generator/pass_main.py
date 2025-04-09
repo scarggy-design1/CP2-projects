@@ -18,7 +18,8 @@ def user_specifcs():
     4. letters and symbols
     5. numbers and symbols
     6. letters and numbers
-    7. all of the above 
+    7. all of the above
+    8. EXIT 
                     """)
         if ask == '1':
             return letters
@@ -34,6 +35,8 @@ def user_specifcs():
             return letters+numbers
         elif ask == '7':
             return letters+numbers+symbols
+        elif ask == '8':
+            return 'none'
         else:
             print("Not a valid input. Try again.")
     
@@ -46,6 +49,8 @@ def user_specifcs():
 
 def randomizer(): #Randomizes a giant list containing all characters and prints the amount the user chooses.
     big_list = user_specifcs()
+    if big_list == 'none':
+        return 'break'
     required = input("What characters, letters, symbols, or numbers would you like in your code?: ")
     required_list = list(required)
     a = len(required_list)
@@ -89,5 +94,5 @@ def main(): #handles the return values.
             pass
 
 
-
-main() #runs the code
+if __name__ == "__mainuser__":
+    main()

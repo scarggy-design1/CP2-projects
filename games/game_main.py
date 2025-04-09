@@ -18,4 +18,5 @@ def simple_game_main():
         elif choice == '3':
             break
 
-simple_game_main()
+if __name__ == "__mainuser__":
+    simple_game_main()

@@ -85,4 +85,6 @@ What would you like to do?
         else:
             print("Pick a valid input. TRY AGAIN.")
 
-main()
+            
+if __name__ == "__mainuser__":
+    main()

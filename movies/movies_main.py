@@ -111,4 +111,5 @@ def main():
 
 
 
-main() #Starts the program
+if __name__ == "__mainuser__":
+    main()
