@@ -16,6 +16,7 @@ This project is a simple battle simulator where you can create, pick, and battle
 ## Current features
 ---
 + there is a radar chart that shows you your characters stats!
++ I use pandas to display the max and min of the character stats
 + The program runs
 
 ## Contributors
