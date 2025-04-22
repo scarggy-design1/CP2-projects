@@ -1,57 +1,22 @@
-import math
-
-class Shape:
-    def __init__(self, side):
-        self.side = side
+#This is lizzy saldanas geometry calc
+from info_shapes import *
 
 
-    def paramenter(self):
-        return self.side*4
-    
-shape = Shape(8)
-print(shape.paramenter()) 
+def main():#Main user interface
+    while True:
+        y = input("What shape would you like to choose?:\n1) Square\n2) Circle\n3) Rectangle\n4) Triangle\n5) EXIT\n")
+        if y == '1':
+            shape('square')
+        elif y == '2':
+            shape('circle')    
+        elif y == '3': 
+            shape('rectangle')
+        elif y == '4':
+           shape('triangle')
+        elif y == '5':
+            break
+        else:
+            print("Choose a valid choice man. ")
 
-class Sqaure:
-    def __init__(self, side):
-        self.side = side
-    
-    def area(self, side):
-        return side*side
+main()
 
-    def perimeter(self, side):
-        return side*4
-    
-class Rectangle:
-    def __init__(self, length, width):
-        self.length = length
-        self.width = width
-    
-    def area(self, length, width):
-        return length*width
-
-    def perimeter(self, length, width):
-        return length*2+width*2
-    
-class Circles:
-    def __init__(self, radius):
-        self.radius = radius
-
-    
-    def area(self, radius):
-        return radius**2*math.pi
-
-    def perimeter(self, radius):
-        return radius*2*math.pi
-    
-class Triange:
-    def __init__(self, base, height, side1, side2):
-        self.base = base
-        self.height = height
-        self.side1 = side1
-        self.side2 = side2
-    
-    def area(self, base, height):
-        return base*height/2
-
-    def perimeter(self, base, side1, side2):
-        return base+side1+side2
