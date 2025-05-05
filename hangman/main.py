@@ -5,11 +5,13 @@ fake = Faker()
 rand_word = fake.word().lower()
 
 def word(rand_word):
+    score = 0
     wordy = list(rand_word)
     letters = ['_|' for _ in wordy]
-    guesser(letters, wordy)
+    while True:
+        guesser(letters, wordy, score)
 
-def guesser(letters, wordy):
+def guesser(letters, wordy, score):
     guessed_letters = set()
     wrong_guesses = 0
     max_wrong = 6
@@ -41,10 +43,8 @@ def guesser(letters, wordy):
             wrong_guesses += 1
 
     if '_|' not in letters:
-        print("\nCongratulations! You guessed the word:", end=' ')
-        for ch in wordy:
-            print(ch, end='')
-        print()
+        print("\nCongratulations! You guessed the word correctly!" )
+
     else:
         print("\nLOSER!💀 You ran out of guesses. The word was:", end=' ')
         for ch in wordy:
